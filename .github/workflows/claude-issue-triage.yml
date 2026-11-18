@@ -51,8 +51,17 @@ jobs:
                Aplícalos con `gh issue edit ${{ github.event.issue.number }} --add-label "..."`.
                Si el issue ya tenía labels `area:`/`priority:`/de tipo que ya no corresponden
                (p. ej. tras una edición), quítalos con `--remove-label "..."`.
-            5. Escribe el diagnóstico en Markdown y en ESPAÑOL. La PRIMERA línea del comentario
-               debe ser exactamente `<!-- claude-triage -->`. Estructura:
+            5. Escribe el diagnóstico en ESPAÑOL usando GitHub Flavored Markdown (GFM) válido,
+               para que GitHub lo renderice correctamente:
+               - Encabezados con `##`/`###`, listas con `-`, negritas con `**...**`.
+               - Nombres de archivos, funciones y comandos entre backticks (`` `game.js` ``).
+               - Bloques de código con triple backtick e indicando el lenguaje (```js).
+               - Tablas GFM si ayudan a comparar; deja una línea en blanco antes y después
+                 de encabezados, listas, tablas y bloques de código.
+               - No envuelvas el comentario completo en un bloque de código ni uses HTML
+                 salvo el marcador inicial.
+               La PRIMERA línea del comentario debe ser exactamente `<!-- claude-triage -->`.
+               Estructura:
                ## 🔎 Diagnóstico de Claude
                - **Resumen**: qué se reporta, en 1-2 frases.
                - **Clasificación**: labels asignados y por qué.
